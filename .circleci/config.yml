@@ -34,3 +34,6 @@ workflows:
       - print_context:
           requires:
             - print_world
+      - print_my_name:
+          requires:
+            - print_context
