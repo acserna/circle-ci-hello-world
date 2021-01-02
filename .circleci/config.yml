@@ -18,7 +18,7 @@ jobs:
       - run:
           name: "save file" 
           command: |
-            echo "My name is Juanito" > output.txt
+            echo "My name is Juanito" > ~/output.txt
       - persist_to_workspace:
           root: ~/
           paths:
@@ -33,7 +33,7 @@ jobs:
       - run:
           name: "read file" 
           command: |
-            cat output.txt
+            cat ~/output.txt
           
 
 workflows:
