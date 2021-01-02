@@ -20,7 +20,7 @@ jobs:
           command: |
             echo "My name is Juanito" > output.txt
       - persist_to_workspace:
-          root: /tmp/dir
+          root: ~/
           paths:
             - output.txt
   print_output_file:
@@ -29,7 +29,7 @@ jobs:
     steps:
       #- checkout
       - attach_workspace:
-          at: /tmp/dir
+          at: ~/
       - run:
           name: "read file" 
           command: |
