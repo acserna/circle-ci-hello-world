@@ -15,18 +15,24 @@ jobs:
       - image: cimg/base:2020.01
     steps:
       - checkout
-      - run: echo "My name is Juanito" > output.txt
-        - persist_to_workspace:
-          root: /tmp/dir
-          paths:
-            - output.txt
+      - run:
+          name: "save file" 
+          command: |
+            echo "My name is Juanito" > output.txt
+          persist_to_workspace:
+            root: /tmp/dir
+            paths:
+              - output.txt
   print_output_file:
     docker:
       - image: cimg/base:2020.01
     steps:
       - checkout
-      - run: cat output.txt
-          - attach_workspace:
+      - run:
+          name: "read file" 
+          command: |
+            cat output.txt
+          attach_workspace:
             at: /tmp/workspace
 
 workflows:
