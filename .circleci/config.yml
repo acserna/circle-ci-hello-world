@@ -31,9 +31,9 @@ jobs:
       - run:
           name: "read file" 
           command: |
-            cat /tmp/dir/output.txt
+            cat output.txt
           attach_workspace:
-            at: /tmp/workspace
+            at: /tmp/dir
 
 workflows:
   own-tests-of-capabilities:
