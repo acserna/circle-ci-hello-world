@@ -46,6 +46,19 @@ jobs:
       - image: cimg/base:2020.01
     steps:
       - print_pipeline_id
+
+
+
+  # failing job
+  failing_job:
+    docker:
+      - image: cimg/base:2020.01
+    steps:
+      - run: return 1
+      - run:
+          name: Fail function
+          command: echo "Error generated"
+          when: on_fail
           
 
 workflows:
@@ -55,4 +68,5 @@ workflows:
       #- print_output_file:
       #    requires:
       #      - save_hello_world_output
-      - print_command_pipelineid
+      #- print_command_pipelineid
+      - failing_job
