@@ -6,12 +6,10 @@ jobs:
       - image: cimg/base:2020.01
     steps:
       - checkout
-      - run: echo My name is = $MY_NAME
-      - run: echo My name is $MY_NAME
       - run:
-        name: print env var
-        command: |
-          echo $MY_NAME
+          name: "print env var"
+          command: |
+            echo $MY_NAME
 
 workflows:
   my-first-test:
